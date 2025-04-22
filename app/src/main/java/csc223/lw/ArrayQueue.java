@@ -26,13 +26,14 @@ public class ArrayQueue implements Queue{
     }
 
     public int dequeue(){
-        if (this.curr == 0){
-            return Integer.MAX_VALUE;
+        int first = this.data[0];
+        int i = 0;
+        while (i != this.curr){
+            this.data[i] = this.data[i+1];
+            i++;
         }
-        else{
-            curr -= 1;
-            return this.data[this.curr];
-        }
+        curr -= 1;
+        return first;
     }
 
     public int peek(){
